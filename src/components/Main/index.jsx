@@ -1,15 +1,15 @@
-import React, {useEffect} from "react";
+import React from "react";
 
-const Main = ({weatherData = null}) => {
+const Main = ({weatherData = null, units}) => {
   return (
     <div>
       {weatherData ? (
         <div>
           <h2>{weatherData?.name}</h2>
-          <h1>{weatherData?.main.temp} C°</h1>
+          <h1>{weatherData?.main?.temp} {units === "metric" ? "C" : "F"}°</h1>
         </div>
       ) : (
-        <p>Введите город</p>
+        <p>Choose city</p>
       )}
     </div>
   );
